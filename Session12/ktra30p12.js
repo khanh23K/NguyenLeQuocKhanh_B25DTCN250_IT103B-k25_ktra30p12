@@ -5,18 +5,13 @@ let products = [
 { id: "P04", name: "Man hinh Dell UltraSharp", price: 450, category: "Man hinh", inStock: true },
 { id: "P05", name: "Tai nghe Sony WH-1000XM5", price: 350, category: "Phu kien", inStock: true }
 ];
-const filterProducts = (listProduct) =>{
-    let arrProducts = listProduct.filter((product) =>{
-        return product.inStock == true
-    });
-    if (!arrProducts) {
-        console.log("Lỗi mặt hàng này ko có sẵn");
-        
-    } else {
-        console.log(`${id.products} - ${name.products} - ${price.products}`);
-        
-    };
-};
+const availableProducts = products.filter((product) => {
+    return product.inStock;
+});
+availableProducts.sort((a, b) => {
+    return b.price - a.price;
+});
+console.log(availableProducts);
 
 let sumOfProducts=(listProduct)=>{
     let allProduct=listProduct.filter(proDuct=>proDuct.inStock===true);
